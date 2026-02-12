@@ -11,6 +11,9 @@ quit-after-last-window-closed = true
 
 auto-update = check
 
+window-inherit-working-directory = false
+working-directory = home
+
 # ============ Styling ================
 theme = dark:Catppuccin Mocha,light:Catppuccin Latte
 font-family = "font-jetbrains-mono-nerd-font"
@@ -24,7 +27,10 @@ window-padding-y = 10
 background-opacity = 0.92
 background-blur-radius = 20
 
-macos-titlebar-style = transparent
+unfocused-split-fill = 080808
+unfocused-split-opacity = 0.3
+split-divider-color = 333333
+
 macos-icon = custom-style
 macos-icon-frame = plastic
 macos-icon-ghost-color = #000000
@@ -34,7 +40,9 @@ macos-icon-screen-color = #333333,#000000
 macos-option-as-alt = true
 
 keybind = alt+d=new_split:right
-keybind = ctrl+shift+d=new_split:down
+keybind = alt+shift+d=new_split:down
 keybind = ctrl+w=close_surface
 
-keybind = global:cmd+L=toggle_quick_terminal
+keybind = cmd+shift+s=prompt_surface_title
+
+keybind = global:cmd+backquote=toggle_quick_terminal
