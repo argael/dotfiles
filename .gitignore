@@ -1,0 +1,6 @@
+# Zed local state / sensitive data
+zed/dot-config/zed/prompts/
+zed/dot-config/zed/settings_backup.json
+
+# Optional local secrets file pattern
+*.secrets
