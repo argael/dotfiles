@@ -22,6 +22,7 @@ else
 fi
 
 "$DEST_DIR/scripts/bootstrap-macos.sh"
+"$DEST_DIR/scripts/install-hooks.sh"
 "$DEST_DIR/scripts/stow-packages.sh" stow
 "$DEST_DIR/scripts/macos-defaults.sh"
 

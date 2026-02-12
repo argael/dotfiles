@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Scan staged text files for high-risk secret patterns before commit.
+PATTERN='(sk-proj-[A-Za-z0-9_-]{20,}|ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|xox[baprs]-[A-Za-z0-9-]{20,}|AKIA[0-9A-Z]{16}|ASIA[0-9A-Z]{16}|AIza[0-9A-Za-z_-]{20,}|-----BEGIN (RSA|EC|OPENSSH|DSA|PGP) PRIVATE KEY-----|api[_-]?key["[:space:]]*[:=]["[:space:]]*[A-Za-z0-9_\-]{16,}|secret["[:space:]]*[:=]["[:space:]]*[A-Za-z0-9_\-]{16,}|token["[:space:]]*[:=]["[:space:]]*[A-Za-z0-9_\-]{16,})'
+
+# Staged files that are added/copied/modified/renamed and still exist.
+staged_files="$(git diff --cached --name-only --diff-filter=ACMR || true)"
+[ -z "$staged_files" ] && exit 0
+
+hit=0
+while IFS= read -r file; do
+  [ -n "$file" ] || continue
+  [ -f "$file" ] || continue
+
+  # Ignore binary staged content to avoid noise.
+  if ! git show ":$file" | grep -Iq .; then
+    continue
+  fi
+
+  if git show ":$file" | grep -En "$PATTERN" >/dev/null 2>&1; then
+    echo "[pre-commit] Possible secret detected in: $file"
+    git show ":$file" | grep -En "$PATTERN" | sed 's/^/  /'
+    hit=1
+  fi
+done <<< "$staged_files"
+
+if [ "$hit" -ne 0 ]; then
+  cat <<MSG
+
+Commit blocked: potential secrets found in staged files.
+Fix or unstage files, then commit again.
+If this is a false positive, commit with --no-verify.
+MSG
+  exit 1
+fi
+
+exit 0

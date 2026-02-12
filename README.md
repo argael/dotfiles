@@ -5,6 +5,7 @@ This repository uses GNU Stow with `--dotfiles`.
 ## Daily usage
 
 ```bash
+make hooks
 make packages
 make dry
 make stow
@@ -34,9 +35,12 @@ If `packages.txt` is missing, packages are auto-detected from top-level director
 
 ```bash
 make bootstrap
+make hooks
 make defaults
 make all
 ```
+
+`make hooks` sets `core.hooksPath=.githooks` and enables the local `pre-commit` secret scan.
 
 ## Remote install
 

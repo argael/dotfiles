@@ -1,11 +1,14 @@
 SHELL := /bin/bash
 
-.PHONY: doctor packages dry stow restow adopt unstow bootstrap defaults all install
+.PHONY: doctor hooks packages dry stow restow adopt unstow bootstrap defaults all install
 
 doctor:
 	@command -v stow >/dev/null || (echo "stow is required" && exit 1)
 	@echo "stow: $$(stow --version | head -n1)"
 	@if command -v brew >/dev/null; then echo "brew: installed"; else echo "brew: not installed"; fi
+
+hooks:
+	@./scripts/install-hooks.sh
 
 packages:
 	@./scripts/stow-packages.sh list
@@ -31,7 +34,7 @@ bootstrap:
 defaults:
 	@./scripts/macos-defaults.sh
 
-all: bootstrap stow defaults
+all: bootstrap hooks stow defaults
 
 install:
 	@./scripts/install.sh
