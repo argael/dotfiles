@@ -70,11 +70,15 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git terraform vscode macos colored-man-pages virtualenv)
+plugins=(git terraform vscode macos colored-man-pages virtualenv )
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+# Homebrew behavior
+export HOMEBREW_NO_INSTALL_CLEANUP=1
+export HOMEBREW_NO_ENV_HINTS=1
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
