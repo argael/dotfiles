@@ -6,14 +6,8 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 BREWFILE="${BREWFILE:-$REPO_ROOT/Brewfile}"
 
 if [ "$(uname -s)" != "Darwin" ]; then
-  echo "bootstrap-macos.sh is intended for macOS. Skipping."
+  echo "scripts/macos/bootstrap.sh is intended for macOS. Skipping."
   exit 0
-fi
-
-if ! xcode-select -p >/dev/null 2>&1; then
-  echo "Installing Xcode Command Line Tools..."
-  xcode-select --install || true
-  echo "Xcode CLT installation started. Re-run bootstrap once installation completes."
 fi
 
 if ! command -v brew >/dev/null 2>&1; then

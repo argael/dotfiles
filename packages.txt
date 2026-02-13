@@ -1,4 +1,0 @@
-ghostty
-oh-my-posh
-zed
-zsh

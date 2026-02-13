@@ -1,35 +1,43 @@
 # Dotfiles
 
-This repository uses GNU Stow with `--dotfiles`.
+This repository uses to configure fresh install of macOS and Lunix. It also use GNU Stow with `--dotfiles`.
+
+## Install
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/argael/dotfiles/main/scripts/install.sh | bash
+```
+
+The installer auto-detects the OS:
+- macOS: runs `scripts/macos/install-macos.sh`
+- Linux: runs `scripts/linux/install-linux.sh`
+
+On a fresh macOS login, the installer first ensures Xcode Command Line Tools are installed (required for `git`).
+If macOS opens an installation dialog, complete it, then run the same command again.
+
+You can override with:
+- `DOTFILES_REPO`
+- `DOTFILES_BRANCH`
+- `DOTFILES_DIR`
+
+---
 
 ## Daily usage
 
 ```bash
-make hooks
-make packages
-make dry
-make stow
-make restow
-make adopt
-make unstow
+make all
+make update
 ```
 
 To target another directory:
 
 ```bash
-STOW_TARGET=/tmp/test-home make stow
-```
-
-To run only specific packages:
-
-```bash
-make stow PACKAGES="zsh ghostty"
+STOW_TARGET=/tmp/test-home make all
 ```
 
 ## Package selection
 
-Default source is `packages.txt`.
-If `packages.txt` is missing, packages are auto-detected from top-level directories (excluding `scripts` and VCS/editor folders).
+Packages are auto-detected from package directories under `homefiles/`.
 
 ## macOS bootstrap
 
@@ -40,16 +48,4 @@ make defaults
 make all
 ```
 
-`make hooks` sets `core.hooksPath=.githooks` and enables the local `pre-commit` secret scan.
-
-## Remote install
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/<user>/<repo>/<branch>/scripts/install.sh \
-  | bash -s -- https://github.com/<user>/<repo>.git <branch>
-```
-
-You can also set:
-- `DOTFILES_REPO`
-- `DOTFILES_BRANCH`
-- `DOTFILES_DIR`
+`make hooks` sets `core.hooksPath=scripts/git/hooks` and enables the local `pre-commit` secret scan.
