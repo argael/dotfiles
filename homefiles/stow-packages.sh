@@ -63,7 +63,7 @@ run_stow() {
       (cd "$STOW_ROOT" && stow --dotfiles -v -t "$TARGET_DIR" "${packages[@]}")
       ;;
     restow)
-      (cd "$STOW_ROOT" && stow --dotfiles -R -v -t "$TARGET_DIR" "${packages[@]}")
+      (cd "$STOW_ROOT" && stow --dotfiles --adopt -R -v -t "$TARGET_DIR" "${packages[@]}")
       ;;
     *)
       usage
