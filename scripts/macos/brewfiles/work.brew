@@ -1,0 +1,15 @@
+# Taps
+tap "avisi-cloud/tools"
+tap "azure/functions"
+tap "hashicorp/tap"
+tap "terraform-docs/tap"
+
+# Formulae
+brew "azure-cli"
+brew "azure-functions-core-tools@4"
+brew "structurizr-site-generatr"
+brew "terraform"
+brew "terraform-docs"
+
+# Casks
+cask "rider"

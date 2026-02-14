@@ -2,7 +2,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-BREWFILE="${BREWFILE:-$SCRIPT_DIR/Brewfile}"
+BREWFILE="${BREWFILE:-$SCRIPT_DIR/brewfiles/common.brew}"
 
 if [ "$(uname -s)" != "Darwin" ]; then
   echo "scripts/macos/bootstrap.sh is intended for macOS. Skipping."

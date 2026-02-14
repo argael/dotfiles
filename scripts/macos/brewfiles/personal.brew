@@ -1,0 +1,24 @@
+# Formulae
+brew "esphome"
+brew "ffmpeg"
+brew "nmap"
+brew "signal-cli"
+brew "yt-dlp"
+
+
+# Casks
+cask "betaflight-configurator"
+cask "gyroflow"
+
+cask pycharm-ce
+
+cask "freecad"
+cask "prusaslicer"
+
+cask "inkscape"
+cask "mqtt-explorer"
+cask "qflipper"
+cask "raspberry-pi-imager"
+
+cask "rustdesk"
+cask "transmission"
