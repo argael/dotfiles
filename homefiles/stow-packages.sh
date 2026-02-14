@@ -60,6 +60,8 @@ run_stow() {
 
   case "$mode" in
     stow)
+      # Preflight to fail fast on conflicts before writing links.
+      (cd "$STOW_ROOT" && stow --dotfiles -n -v -t "$TARGET_DIR" "${packages[@]}")
       (cd "$STOW_ROOT" && stow --dotfiles -v -t "$TARGET_DIR" "${packages[@]}")
       ;;
     restow)

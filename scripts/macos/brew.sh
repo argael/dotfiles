@@ -27,6 +27,9 @@ fi
 if [ -f "$BREWFILE" ]; then
   echo "Applying Brewfile: $BREWFILE"
   brew bundle --file="$BREWFILE"
+
+  echo "Verifying Brewfile dependencies are installed: $BREWFILE"
+  brew bundle check --no-upgrade --file="$BREWFILE"
 fi
 
 echo "macOS bootstrap complete."

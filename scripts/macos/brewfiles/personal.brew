@@ -10,7 +10,7 @@ brew "yt-dlp"
 cask "betaflight-configurator"
 cask "gyroflow"
 
-cask pycharm-ce
+cask "pycharm-ce"
 
 cask "freecad"
 cask "prusaslicer"

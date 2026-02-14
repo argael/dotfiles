@@ -27,9 +27,9 @@ else
   git clone --branch "$BRANCH" "$REPO_URL" "$DEST_DIR"
 fi
 
-# Run macOS setup, install brew and configuration files...
-"$DEST_DIR/scripts/macos/configure.sh"
+# Install software first, then apply configuration.
 "$DEST_DIR/scripts/macos/brew.sh"
+"$DEST_DIR/scripts/macos/configure.sh"
 
 "$DEST_DIR/scripts/common/git/setup.sh"
 "$DEST_DIR/scripts/common/zsh/omz-setup.sh"
