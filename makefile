@@ -1,8 +1,8 @@
 SHELL := /bin/bash
 
-.PHONY: install git stow update defaults all
+.PHONY: install git stow update zsh defaults all
 
-install:
+defaults:
 	@./scripts/install.sh
 
 git:
@@ -11,10 +11,5 @@ git:
 stow:
 	@./homefiles/stow-packages.sh stow
 
-update:
+restow:
 	@./homefiles/stow-packages.sh restow
-
-defaults:
-	@./scripts/macos/defaults.sh
-
-all: install git stow

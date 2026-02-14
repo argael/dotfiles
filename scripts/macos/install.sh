@@ -27,10 +27,12 @@ else
   git clone --branch "$BRANCH" "$REPO_URL" "$DEST_DIR"
 fi
 
-# Run macOS bootstrap, configure git hooks, apply dotfiles, then macOS defaults.
-"$DEST_DIR/scripts/macos/bootstrap.sh"
-"$DEST_DIR/scripts/git/setup.sh"
+# Run macOS setup, install brew and configuration files...
+"$DEST_DIR/scripts/macos/configure.sh"
+"$DEST_DIR/scripts/macos/brew.sh"
+
+"$DEST_DIR/scripts/common/git/setup.sh"
+"$DEST_DIR/scripts/common/zsh/omz-setup.sh"
 "$DEST_DIR/homefiles/stow-packages.sh" stow
-"$DEST_DIR/scripts/macos/defaults.sh"
 
 echo "Done."

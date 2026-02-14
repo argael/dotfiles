@@ -2,8 +2,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-BREWFILE="${BREWFILE:-$REPO_ROOT/Brewfile}"
+BREWFILE="${BREWFILE:-$SCRIPT_DIR/Brewfile}"
 
 if [ "$(uname -s)" != "Darwin" ]; then
   echo "scripts/macos/bootstrap.sh is intended for macOS. Skipping."
@@ -20,14 +19,14 @@ if ! command -v brew >/dev/null 2>&1; then
   exit 1
 fi
 
-if [ -f "$BREWFILE" ]; then
-  echo "Applying Brewfile: $BREWFILE"
-  brew bundle --file="$BREWFILE"
-fi
-
 if ! command -v stow >/dev/null 2>&1; then
   echo "Installing stow via brew..."
   brew install stow
+fi
+
+if [ -f "$BREWFILE" ]; then
+  echo "Applying Brewfile: $BREWFILE"
+  brew bundle --file="$BREWFILE"
 fi
 
 echo "macOS bootstrap complete."
