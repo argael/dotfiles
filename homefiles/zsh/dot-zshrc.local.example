@@ -1,0 +1,4 @@
+# Local machine overrides.
+# Copy to homefiles/zsh/dot-zshrc.local and set your real values.
+
+export OPENAI_API_KEY="sk-..."

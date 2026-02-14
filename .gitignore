@@ -4,3 +4,6 @@ homefiles/zed/dot-config/zed/settings_backup.json
 
 # Optional local secrets file pattern
 *.secrets
+
+# Local shell overrides (stowed to ~/.zshrc.local when present)
+homefiles/zsh/dot-zshrc.local
