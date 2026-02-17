@@ -16,7 +16,7 @@
     "show_branch_icon": true,
     "show_sign_in": false,
   },
-  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_family": "JetBrains Mono NL",
   "buffer_font_size": 15,
   "buffer_line_height": {"custom": 1.6},
   "buffer_font_weight": 300,
@@ -41,7 +41,12 @@
   "tab_bar": {
     "show": true,
   },
+  "terminal": {
+    "dock": "bottom",
+    "font_family": "JetBrainsMono Nerd Font"
+  },
   "wrap_guides": [80,120],
+  "line_indicator_format": "long",
   "show_wrap_guides": true,
   "base_keymap": "VSCode",
   "vim_mode": false,

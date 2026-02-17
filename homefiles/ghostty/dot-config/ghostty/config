@@ -13,7 +13,7 @@ window-inherit-working-directory = false
 working-directory = home
 
 # ============ Styling ================
-theme = dark:Catppuccin Mocha,light:Catppuccin Latte
+theme = Catppuccin Mocha
 font-family = "font-jetbrains-mono-nerd-font"
 font-size = 14
 adjust-cell-height = 24%
@@ -22,14 +22,14 @@ window-decoration = true
 window-padding-x = 10
 window-padding-y = 10
 
-background-opacity = 0.92
+background-opacity = 0.90
 background-blur-radius = 20
 
 unfocused-split-fill = 080808
 unfocused-split-opacity = 0.8
 split-divider-color = 333333
 
-macos-titlebar-style = native
+#macos-titlebar-style = native
 macos-icon = custom-style
 macos-icon-frame = plastic
 macos-icon-ghost-color = #000000
