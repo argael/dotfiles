@@ -60,6 +60,8 @@
   },
   "relative_line_numbers": "disabled",
   "agent": {
+    "enable_feedback": false,
+    "single_file_review": false,
     "default_model": {
       "provider": "copilot_chat",
       "model": "gpt-4.1"
