@@ -7,11 +7,15 @@ brew "coreutils"
 brew "mole"
 brew "oh-my-posh"
 brew "ripgrep"
+brew "fd"
+brew "fzf"
 brew "tmux"
 brew "stow"
 brew "tree"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
+brew "zoxidee
+brew "yt-dlpi"
 
 # Casks
 cask "1password"
