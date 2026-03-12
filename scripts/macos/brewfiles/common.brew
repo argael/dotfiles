@@ -4,6 +4,7 @@ tap "homebrew/cask-fonts"
 
 # Formulae
 brew "coreutils"
+brew "direnv"
 brew "mole"
 brew "oh-my-posh"
 brew "ripgrep"

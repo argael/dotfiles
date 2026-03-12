@@ -8,6 +8,7 @@ eval "$(/usr/local/bin/brew shellenv)"
 
 eval "$(zoxide init zsh --cmd cd)"
 
+eval "$(direnv hook zsh)"
 
 source <(fzf --zsh)
 
