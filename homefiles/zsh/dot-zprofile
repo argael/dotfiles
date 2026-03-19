@@ -4,13 +4,21 @@ if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
     eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/catppuccin.omp.json)"
 fi
 
-eval "$(/usr/local/bin/brew shellenv)"
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
-eval "$(zoxide init zsh --cmd cd)"
+# Zoxide
+if (( $+commands[zoxide] )); then
+    eval "$(zoxide init zsh --cmd cd)"
+fi
 
+# Direnv
 eval "$(direnv hook zsh)"
 
-source <(fzf --zsh)
+# FZF
+if (( $+commands[fzf] )); then
+    source <(fzf --zsh)
+fi
 
 # Git Kraken (Open project directory in GitKraken)
 unalias gk 2>/dev/null
