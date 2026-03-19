@@ -42,6 +42,14 @@
     "show": true,
   },
   "terminal": {
+    "toolbar": {
+      "breadcrumbs": false
+    },
+    "copy_on_select": true,
+    "blinking": "terminal_controlled",
+    "cursor_shape": "underline",
+    "font_weight": 300.0,
+    "font_size": 14.0,
     "dock": "bottom",
     "font_family": "JetBrainsMono Nerd Font"
   },
