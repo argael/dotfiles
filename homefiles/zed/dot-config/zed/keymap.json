@@ -18,4 +18,26 @@
       // "j k": "vim::NormalBefore"
     },
   },
+  {
+    "bindings": {
+      "cmd-1": "project_panel::ToggleFocus"
+    }
+  },
+  {
+    "bindings": {
+      "cmd-2": "git_panel::Toggle"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "cmd-shift-f": "project_panel::NewSearchInDirectory"
+    }
+  },
+  {
+    "context": "Editor",
+      "bindings": {
+      "cmd-shift-h": "editor::ToggleFold"
+    }
+  }
 ]
