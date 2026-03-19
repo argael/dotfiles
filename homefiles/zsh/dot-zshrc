@@ -36,9 +36,10 @@ complete -o nospace -C /opt/homebrew/bin/terraform terraform
 alias tf='terraform'
 
 # Syntax highlighting
-ZSH_HIGHLIGHT_DIR="/usr/local/share/zsh-syntax-highlighting"
-export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="${ZSH_HIGHLIGHT_DIR}/highlighters"
-source ${ZSH_HIGHLIGHT_DIR}/zsh-syntax-highlighting.zsh
+#ZSH_HIGHLIGHT_DIR="/usr/local/share/zsh-syntax-highlighting"
+#export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="${ZSH_HIGHLIGHT_DIR}/highlighters"
+#source ${ZSH_HIGHLIGHT_DIR}/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Tools
 alias ytdown='yt-dlp'
