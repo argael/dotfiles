@@ -28,7 +28,6 @@ cask "brave-browser"
 cask "font-jetbrains-mono-nerd-font"
 cask "ghostty"
 cask "gitkraken"
-cask "gitkraken-cli"
 cask "google-chrome"
 cask "kap"
 cask "obsidian"
@@ -39,3 +38,6 @@ cask "signal"
 cask "tailscale-app"
 cask "vlc"
 cask "zed"
+
+# Post cask formulae
+brew install gitkraken-cli

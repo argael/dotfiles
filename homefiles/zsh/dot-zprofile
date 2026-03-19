@@ -12,6 +12,26 @@ eval "$(direnv hook zsh)"
 
 source <(fzf --zsh)
 
+# Git Kraken (Open project directory in GitKraken)
+unalias gk 2>/dev/null
+kraken() {
+  local target_path repo_root
+  target_path="${1:-.}"
+
+  if [[ ! -e "$target_path" ]]; then
+    echo "kraken: path not found: $target_path" >&2
+    return 1
+  fi
+
+  repo_root="$(git -C "$target_path" rev-parse --show-toplevel 2>/dev/null)"
+  if [[ -z "$repo_root" ]]; then
+    echo "kraken: not a Git repository: $target_path" >&2
+    return 1
+  fi
+
+  open -na "GitKraken" --args -p "$repo_root"
+}
+
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :
@@ -19,3 +39,7 @@ source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 # Aliases
 alias find="fd" # Replace 'find' with FD
 alias grep="rg" # Replace 'grep' with Ripgrep
+
+alias ytdown='yt-dlp'
+alias tunneling='$HOME/.config/tunnelling/tunnelling.sh'
+alias cx='codex'

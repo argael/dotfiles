@@ -27,9 +27,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Git Kraken (Open current directory in GitKraken)
-alias kraken='open -na "GitKraken" --args -p $(pwd)'
-
 # Terraform
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
@@ -42,10 +39,7 @@ alias tf='terraform'
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Tools
-alias ytdown='yt-dlp'
-alias tunneling='$HOME/.config/tunnelling/tunnelling.sh'
 alias gristory='history | grep '
-alias cx='codex'
 
 # bun completions
 [ -s "/Users/argael/.bun/_bun" ] && source "/Users/argael/.bun/_bun"
