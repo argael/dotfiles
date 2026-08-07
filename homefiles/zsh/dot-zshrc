@@ -13,7 +13,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='zed'
+  export EDITOR='code'
 fi
 export VISUAL=$EDITOR
 
@@ -47,6 +47,11 @@ alias gristory='history | grep '
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Autocompletion (for Taskfile)
+fpath=(~/.zsh/completions $fpath)
+autoload -Uz compinit
+compinit 
 
 # Local machine overrides (secrets, tokens, host-specific exports)
 [ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"

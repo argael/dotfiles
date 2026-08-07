@@ -12,6 +12,7 @@ if (( $+commands[zoxide] )); then
     eval "$(zoxide init zsh --cmd cd)"
 fi
 
+<<<<<<< HEAD
 # Direnv
 eval "$(direnv hook zsh)"
 
@@ -39,6 +40,12 @@ kraken() {
 
   open -na "GitKraken" --args -p "$repo_root"
 }
+=======
+source <(fzf --zsh)
+>>>>>>> 35ea062 (Wip)
+
+# Obsidian CLI
+export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
 
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
@@ -48,6 +55,32 @@ source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 alias find="fd" # Replace 'find' with FD
 alias grep="rg" # Replace 'grep' with Ripgrep
 
+<<<<<<< HEAD
 alias ytdown='yt-dlp'
 alias tunneling='$HOME/.config/tunnelling/tunnelling.sh'
 alias cx='codex'
+=======
+# Sail (for Laravel)
+sail() {
+  local dir="$PWD"
+
+  while [ "$dir" != "/" ]; do
+    if [ -f "$dir/artisan" ] || [ -f "$dir/.env" ]; then
+      if [ -x "$dir/sail" ]; then
+        (cd "$dir" && "$dir/sail" "$@")
+        return $?
+      fi
+      if [ -x "$dir/vendor/bin/sail" ]; then
+        (cd "$dir" && "$dir/vendor/bin/sail" "$@")
+        return $?
+      fi
+      echo "Laravel Root detected but Sail binary not found." >&2
+      return 1
+    fi
+    dir="$(dirname "$dir")"
+  done
+
+  echo "Laravel Root not found (artisan/.env missing)." >&2
+  return 1
+}
+>>>>>>> 35ea062 (Wip)
