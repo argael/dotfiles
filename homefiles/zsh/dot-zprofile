@@ -12,7 +12,6 @@ if (( $+commands[zoxide] )); then
     eval "$(zoxide init zsh --cmd cd)"
 fi
 
-<<<<<<< HEAD
 # Direnv
 eval "$(direnv hook zsh)"
 
@@ -40,9 +39,6 @@ kraken() {
 
   open -na "GitKraken" --args -p "$repo_root"
 }
-=======
-source <(fzf --zsh)
->>>>>>> 35ea062 (Wip)
 
 # Obsidian CLI
 export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
@@ -55,11 +51,10 @@ source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 alias find="fd" # Replace 'find' with FD
 alias grep="rg" # Replace 'grep' with Ripgrep
 
-<<<<<<< HEAD
 alias ytdown='yt-dlp'
 alias tunneling='$HOME/.config/tunnelling/tunnelling.sh'
 alias cx='codex'
-=======
+
 # Sail (for Laravel)
 sail() {
   local dir="$PWD"
@@ -83,4 +78,3 @@ sail() {
   echo "Laravel Root not found (artisan/.env missing)." >&2
   return 1
 }
->>>>>>> 35ea062 (Wip)
