@@ -38,9 +38,6 @@ alias tf='terraform'
 #source ${ZSH_HIGHLIGHT_DIR}/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Tools
-alias gristory='history | grep '
-
 # bun completions
 [ -s "/Users/argael/.bun/_bun" ] && source "/Users/argael/.bun/_bun"
 
@@ -51,7 +48,15 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # Autocompletion (for Taskfile)
 fpath=(~/.zsh/completions $fpath)
 autoload -Uz compinit
-compinit 
+compinit
 
 # Local machine overrides (secrets, tokens, host-specific exports)
 [ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
+export PATH="$HOME/go/bin:$PATH"
+
+# Source Other Aliases
+source $HOME/.zaliases

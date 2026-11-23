@@ -1,0 +1,36 @@
+# Tools
+alias gristory='history | grep '
+
+#eza (Better ls)
+alias ls='eza -h --icons --group-directories-first'
+alias ll='ls -la -g -o --no-permissions'
+alias la='clear ; ls -T -L 2 -lg --git --git-ignore --show-symlinks'
+alias l='clear; ls -T -L 2 -lg --git --git-ignore --show-symlinks --no-permissions --no-filesize --no-user --no-time'
+
+# Aliases
+alias find="fd" # Replace 'find' with FD
+alias grep="rg" # Replace 'grep' with Ripgrep
+
+alias ytdown='yt-dlp'
+alias tunneling='$HOME/.config/tunnelling/tunnelling.sh'
+alias cx='codex'
+
+# Git Kraken (Open project directory in GitKraken)
+unalias gk 2>/dev/null
+kraken() {
+  local target_path repo_root
+  target_path="${1:-.}"
+
+  if [[ ! -e "$target_path" ]]; then
+    echo "kraken: path not found: $target_path" >&2
+    return 1
+  fi
+
+  repo_root="$(git -C "$target_path" rev-parse --show-toplevel 2>/dev/null)"
+  if [[ -z "$repo_root" ]]; then
+    echo "kraken: not a Git repository: $target_path" >&2
+    return 1
+  fi
+
+  open -na "GitKraken" --args -p "$repo_root"
+}

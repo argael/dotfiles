@@ -5,7 +5,7 @@ if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
 fi
 
 # Homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(/usr/local/bin/brew shellenv)"
 
 # Zoxide
 if (( $+commands[zoxide] )); then
@@ -13,32 +13,13 @@ if (( $+commands[zoxide] )); then
 fi
 
 # Direnv
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 
 # FZF
 if (( $+commands[fzf] )); then
     source <(fzf --zsh)
 fi
 
-# Git Kraken (Open project directory in GitKraken)
-unalias gk 2>/dev/null
-kraken() {
-  local target_path repo_root
-  target_path="${1:-.}"
-
-  if [[ ! -e "$target_path" ]]; then
-    echo "kraken: path not found: $target_path" >&2
-    return 1
-  fi
-
-  repo_root="$(git -C "$target_path" rev-parse --show-toplevel 2>/dev/null)"
-  if [[ -z "$repo_root" ]]; then
-    echo "kraken: not a Git repository: $target_path" >&2
-    return 1
-  fi
-
-  open -na "GitKraken" --args -p "$repo_root"
-}
 
 # Obsidian CLI
 export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
@@ -46,14 +27,6 @@ export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :
-
-# Aliases
-alias find="fd" # Replace 'find' with FD
-alias grep="rg" # Replace 'grep' with Ripgrep
-
-alias ytdown='yt-dlp'
-alias tunneling='$HOME/.config/tunnelling/tunnelling.sh'
-alias cx='codex'
 
 # Sail (for Laravel)
 sail() {
